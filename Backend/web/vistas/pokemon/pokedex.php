@@ -5,24 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
-    <style>
-        .pokemon-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .pokemon {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
-        }
-
-        .nombre {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-    </style>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/Pokedex/Backend/web/vistas/includes/header.php'; ?>
 </head>
 
 <body>
@@ -47,7 +30,6 @@
         foreach ($data['results'] as $pokemon) {
             echo "<div class='pokemon'>";
             echo "<p class='nombre'><href='" .  $pokemon['url'] . "' target='_blank'>" . $pokemon['name'] . "</p>";
-            // echo "<p class='nombre'><href='" .  $pokemon['url'] . "' target='_blank'>" . $pokemon['name'] . "</p>";
             echo "</div>";
         }
 
@@ -57,7 +39,13 @@
     echo "</div>";
 
     ?>
+
+
+
+
+
+
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/Pokedex/Backend/web/vistas/includes/scripts.php'; ?>
 </body>
-<?php require_once INCLUDES_TEMPLADE . "header.php"; ?>
 
 </html>
