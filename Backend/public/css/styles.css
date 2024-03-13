@@ -7,7 +7,7 @@
 /** ESTILOS PAGINA DE INICIO */
 
 .body-inicio {
-    background-image: url(./img/grass3.jpg);
+    background-image: url(./img/grass2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -91,12 +91,12 @@
 /** ESTILOS PAGINA DE LOGIN - REGISTRO */
 
 .body-log-reg{
-background-image: url(img/grass1.jpg);
-background-repeat: no-repeat;
-background-size: cover;
-background-attachment: fixed;
-min-height: 100vh;
-width: 100%;
+    background-image: url(./img/grass1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
 }
 
 
