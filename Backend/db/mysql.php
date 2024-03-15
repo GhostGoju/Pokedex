@@ -1,6 +1,8 @@
 <?php
 
-class dataBase
+include '../Config/.DB.inc';
+
+class database
 {
     var $conexion;
 

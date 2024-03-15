@@ -16,20 +16,20 @@
 
 
     <?php
-
     echo "<div class='body-details-pokemon'>";
-    // OBTIENE EL NOMBRE DEL POKEMON
     $pokemon_name = $_GET['name'];
-
-    // LLAMA AL API PARA OBTENER DATOS DEL POKEMON
     $url = 'https://pokeapi.co/api/v2/pokemon/' . $pokemon_name;
     $data = file_get_contents($url);
     $pokemon_details = json_decode($data, true);
 
 
 
-    // DETALLES DEL POKEMON
-    echo "<h2>" . ucfirst($pokemon_details['name']) . "</h2>";
+
+
+    echo "<div class='tarjet-details'>";
+
+
+    echo "<div class= 'name-pokemon'>" . ucfirst($pokemon_details['name']) . "</div>";
     echo "<img src='" . $pokemon_details['sprites']['front_default'] . "' alt='" . ucfirst($pokemon_details['name']) . "'>";
     echo "<p>Height: " . $pokemon_details['height'] . "</p>";
     echo "<p>Weight: " . $pokemon_details['weight'] . "</p>";
@@ -37,12 +37,21 @@
 
 
 
-    echo "<h3>Abilities</h3>";
+    echo "<div class='habilidades'>";
+    echo "<div class='habilidades-header'>Habilidades</div>";
+    echo "<div class='habilidades-body'>";
     foreach ($pokemon_details['abilities'] as $ability) {
         echo "<li>" . ucfirst($ability['ability']['name']) . "</li>";
     }
+    echo "</div>";
+    echo "</div>";
 
 
+
+
+
+
+    echo "</img>";
     echo "</div>";
     ?>
 

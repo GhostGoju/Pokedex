@@ -1,14 +1,12 @@
 <?php
-session_start();
-include '/Pokedex/Backend/modelo/usuariosModelo.php';
+
+include '../modelo/usuariosModelo.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validación básica de correo electrónico y contraseña
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "El correo electrónico proporcionado no es válido.";
         exit();
     }
 
@@ -17,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result) {
         $_SESSION['email'] = $email;
-        header("Location: login.php");
+        header("Location: ../web/vistas/pokemon/pokedex.php");
         exit();
-    } else {
-        echo "Error en el registro.";
     }
 }
+unset($usuario);

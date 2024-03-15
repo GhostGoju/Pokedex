@@ -1,6 +1,6 @@
 <?php
 
-require_once "db/dataBase.php";
+require_once '../db/mysql.php';
 
 class usuarioModelo
 {
@@ -8,20 +8,27 @@ class usuarioModelo
 
     public function __construct()
     {
-        $db = new dataBase();
+        $db = new database(); // Utiliza correctamente el nombre de la clase para crear una instancia
         $this->conexion = $db->getConexion();
     }
 
     public function usuarioRegistro($email, $password)
     {
-        $sql = "INSERT INTO usuarios (email, password) VALUES ('$email', '$password')";
-        return $this->conexion->query($sql);
+        // Utiliza consultas preparadas para evitar la inyección de SQL
+        $sql = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param("ss", $email, $password);
+        return $stmt->execute();
     }
 
     public function getByEmail($email)
     {
-        $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-        $result = $this->conexion->query($sql);
+        // Utiliza consultas preparadas para evitar la inyección de SQL
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
