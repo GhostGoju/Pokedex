@@ -1,23 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles</title>
+    <title>DETALLES</title>
+    <link rel="icon" href="/Pokedex/Backend/public/css/img/pokeball.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="/Pokedex/Backend/public/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    DETALLES :)
 
 
 
 
+    <?php
+
+    echo "<div class='body-details-pokemon'>";
+    // OBTIENE EL NOMBRE DEL POKEMON
+    $pokemon_name = $_GET['name'];
+
+    // LLAMA AL API PARA OBTENER DATOS DEL POKEMON
+    $url = 'https://pokeapi.co/api/v2/pokemon/' . $pokemon_name;
+    $data = file_get_contents($url);
+    $pokemon_details = json_decode($data, true);
 
 
 
+    // DETALLES DEL POKEMON
+    echo "<h2>" . ucfirst($pokemon_details['name']) . "</h2>";
+    echo "<img src='" . $pokemon_details['sprites']['front_default'] . "' alt='" . ucfirst($pokemon_details['name']) . "'>";
+    echo "<p>Height: " . $pokemon_details['height'] . "</p>";
+    echo "<p>Weight: " . $pokemon_details['weight'] . "</p>";
+
+
+
+
+    echo "<h3>Abilities</h3>";
+    foreach ($pokemon_details['abilities'] as $ability) {
+        echo "<li>" . ucfirst($ability['ability']['name']) . "</li>";
+    }
+
+
+    echo "</div>";
+    ?>
 
 
 
@@ -25,7 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Backend/public/js/main.js">
+    <link rel="stylesheet" href="/Pokedex/Backend/public/js/main.js">
 </body>
 
 </html>

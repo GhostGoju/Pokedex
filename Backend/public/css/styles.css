@@ -24,7 +24,7 @@
 }
 
 .content-inicio {
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: rgba(255, 255, 255, 0.904);
     width: 20%;
     height: 50%;
     display: flex;
@@ -34,7 +34,7 @@
     border-radius: 7px;
 }
 
-.header-content-inicio{
+.header-content-inicio {
     width: 100%;
     height: 70%;
     display: flex;
@@ -45,7 +45,7 @@
 .btn-verPokedex {
     padding: 10px 20px;
     background-color: transparent;
-    color: white;
+    color: #06ac06;
     border: none;
     border-radius: 5px;
     font-size: 50px;
@@ -53,7 +53,7 @@
 }
 
 .btn-verPokedex:hover {
-    color: rgb(197, 196, 196);
+    color: red;
     transition: all 0.3s ease;
     border: none;
 }
@@ -66,18 +66,19 @@
     align-items: center;
     height: 30%;
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.397);
+    border-top: 1px solid black;
 }
 
 .footer-content-inicio a {
     display: block;
     text-align: center;
     margin-bottom: 10px;
-    color: white;
+    color: black;
     font-size: medium;
 }
-.footer-content-inicio a:hover{
-  color: rgb(197, 196, 196);
+
+.footer-content-inicio a:hover {
+    color: rgb(114, 113, 113);
 }
 
 /** FIN ESTILOS PAGINA DE INICIO */
@@ -90,17 +91,78 @@
 
 /** ESTILOS PAGINA DE LOGIN - REGISTRO */
 
-.body-log-reg{
-    background-image: url(./img/grass1.jpg);
+.body-log-reg {
+    background-image: url(./img/grass2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.formulario {
+    background-color: rgba(255, 255, 255, 0.904);
+    width: 20%;
+    height: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 7px;
+}
 
+.form-header {
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid black;
+    display: grid;
+    align-content: center;
+    padding-top: 20px;
+}
 
+.form-content {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-floating {
+    width: 80%;
+    height: 60px;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.form-footer {
+    /* background-color: black; */
+    width: 100%;
+    height: 20%;
+    padding-top: 30px;
+}
+
+.form-footer button {
+    background-color: red;
+    color: white;
+    text-transform: uppercase;
+    height: 50px;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-footer button:hover {
+    background-color: rgb(212, 9, 9);
+}
 
 
 /** FIN ESTILOS PAGINA DE LOGIN - REGISTRO */
@@ -113,24 +175,108 @@
 
 /** ESTILOS PAGINA POKEDEX */
 
-.pokemon-list {
+
+.body-list-pokemon {
+    background-image: url(./img/grass3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-list-pokemon {
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px double black;
+    margin-bottom: 60px;
+}
+
+.title-list-pokemon h1 {
+    font-size: 100px;
+    color: red;
+    text-transform: uppercase;
+}
+
+.list-pokemon {
+    background-color: white;
+    min-height: 100vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
-.pokemon {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
+.name-list-pokemon {
+    background: linear-gradient(to top, white 50%, red 50%);
+    width: 150px;
+    height: 150px;
+    margin-left: 55px;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 50%;
+    border: 4px solid black;
 }
 
-.nombre {
-    font-weight: bold;
-    margin-bottom: 5px;
+.name-list-pokemon:hover {
+    box-shadow: 5px 10px 15px black;
 }
 
+.name-list-pokemon a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+}
 
-
+.name-list-pokemon a:hover {
+    color: gold;
+}
 
 /** FIN ESTILOS PAGINA POKEDEX */
+
+
+
+/*! ////////////////////////////////////////// */
+
+
+
+/** ESTILOS PAGINA DETALLES */
+
+.body-details-pokemon{
+    background-image: url(./img/grass3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+/** FIN ESTILOS PAGINA DETALLES */
