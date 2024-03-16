@@ -34,6 +34,9 @@
         <div class="form-footer">
             <button class="btn-verificacion" type="submit" value="registrar">Registrar</button>
         </div>
+
+        <a href="./login.php">Ya tengo cuenta</a>
+
     </form>
 
 

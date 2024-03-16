@@ -40,6 +40,8 @@
             <button class="btn-verificacion" type="submit">Entrar</button>
         </div>
 
+        <a href="./registro.php">Registrarme</a>
+
     </form>
 
 
