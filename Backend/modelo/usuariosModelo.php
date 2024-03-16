@@ -8,14 +8,13 @@ class usuarioModelo
 
     public function __construct()
     {
-        $db = new database(); // Utiliza correctamente el nombre de la clase para crear una instancia
+        $db = new database();
         $this->conexion = $db->getConexion();
     }
 
     public function usuarioRegistro($email, $password)
     {
-        // Utiliza consultas preparadas para evitar la inyección de SQL
-        $sql = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
+        $sql = "INSERT INTO usuarios (email, password) VALUES $email, $password)";
         $stmt = $this->conexion->prepare($sql);
         $stmt->bind_param("ss", $email, $password);
         return $stmt->execute();
@@ -23,8 +22,7 @@ class usuarioModelo
 
     public function getByEmail($email)
     {
-        // Utiliza consultas preparadas para evitar la inyección de SQL
-        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $sql = "SELECT * FROM usuarios WHERE email = $email";
         $stmt = $this->conexion->prepare($sql);
         $stmt->bind_param("s", $email);
         $stmt->execute();

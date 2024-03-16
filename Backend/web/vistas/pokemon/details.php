@@ -13,29 +13,26 @@
 <body>
 
 
-
-
     <?php
+    session_start();
+
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header('Location: /Pokedex/Backend/web/vistas/usuarios/login.php');
+        exit;
+    }
+
     echo "<div class='body-details-pokemon'>";
     $pokemon_name = $_GET['name'];
     $url = 'https://pokeapi.co/api/v2/pokemon/' . $pokemon_name;
     $data = file_get_contents($url);
     $pokemon_details = json_decode($data, true);
 
-
-
-
-
     echo "<div class='tarjet-details'>";
-
 
     echo "<div class= 'name-pokemon'>" . ucfirst($pokemon_details['name']) . "</div>";
     echo "<img src='" . $pokemon_details['sprites']['front_default'] . "' alt='" . ucfirst($pokemon_details['name']) . "'>";
     echo "<p>Height: " . $pokemon_details['height'] . "</p>";
     echo "<p>Weight: " . $pokemon_details['weight'] . "</p>";
-
-
-
 
     echo "<div class='habilidades'>";
     echo "<div class='habilidades-header'>Habilidades</div>";
@@ -46,16 +43,10 @@
     echo "</div>";
     echo "</div>";
 
-
-
-
-
-
     echo "</img>";
     echo "</div>";
+
     ?>
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

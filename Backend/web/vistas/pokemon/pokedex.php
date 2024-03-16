@@ -17,6 +17,8 @@
 
     <?php
 
+    session_start();
+
     echo "<div class='body-list-pokemon'>";
     // OBTENER DATOS DEL API
     function obtenerDatos($url)

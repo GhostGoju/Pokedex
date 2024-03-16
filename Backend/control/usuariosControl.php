@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $usuario = new usuarioModelo();
-    $result = $usuario->usuarioRegistro($email, password_hash($password, PASSWORD_DEFAULT)); // Usar password_hash() para almacenar contraseñas seguras
+    $result = $usuario->usuarioRegistro($email, password_hash($password, PASSWORD_DEFAULT));
 
     if ($result) {
         $_SESSION['email'] = $email;
