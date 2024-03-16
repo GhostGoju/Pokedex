@@ -15,11 +15,12 @@
 
     <?php
     session_start();
-
     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+
         header('Location: /Pokedex/Backend/web/vistas/usuarios/login.php');
         exit;
     }
+
 
     echo "<div class='body-details-pokemon'>";
     $pokemon_name = $_GET['name'];
@@ -45,8 +46,8 @@
 
     echo "</img>";
     echo "</div>";
-
     ?>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

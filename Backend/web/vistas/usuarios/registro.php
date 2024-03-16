@@ -16,33 +16,25 @@
 
 
 
-
-
-    <form class="formulario" action="/Pokedex/Backend/control/usuariosControl.php" method="post">
-
+    <form class="formulario" action="/Pokedex/Backend/control/usuariosControl.php" method="post" onsubmit="return validarFormulario()">
         <div class="form-header">
             <h2>REGISTRO</h2>
             <p>Aquí podrás registrarte</p>
         </div>
-
         <div class="form-content">
             <div class="form-floating mb-2">
-                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                <label for="email">Email</label>
             </div>
-            <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+            <div class="form-floating mb-2">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                <label for="password">Password</label>
             </div>
         </div>
-
         <div class="form-footer">
-            <button class="btn-verificacion" type="submit">Entrar</button>
+            <button class="btn-verificacion" type="submit" value="registrar">Registrar</button>
         </div>
-
     </form>
-
-
 
 
 

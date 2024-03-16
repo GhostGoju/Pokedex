@@ -1,32 +1,25 @@
 <?php
+include_once '../db/mysql.php';
 
-require_once '../db/mysql.php';
-
-class usuarioModelo
+class UsuarioModelo
 {
     private $conexion;
 
     public function __construct()
     {
-        $db = new database();
-        $this->conexion = $db->getConexion();
+        $database = new BaseDeDatos();
+        $this->conexion = $database->getConexion();
     }
 
-    public function usuarioRegistro($email, $password)
+    public function registrarUsuario($email, $password)
     {
-        $sql = "INSERT INTO usuarios (email, password) VALUES $email, $password)";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("ss", $email, $password);
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        $query = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("ss", $email, $hashed_password);
+
         return $stmt->execute();
-    }
-
-    public function getByEmail($email)
-    {
-        $sql = "SELECT * FROM usuarios WHERE email = $email";
-        $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

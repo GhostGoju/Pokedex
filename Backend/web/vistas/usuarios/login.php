@@ -18,7 +18,6 @@
 
 
 
-
     <form class="formulario" action="/Pokedex/Backend/control/usuariosControl.php" method="post">
 
         <div class="form-header">
@@ -42,9 +41,6 @@
         </div>
 
     </form>
-
-
-
 
 
 

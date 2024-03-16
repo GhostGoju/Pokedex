@@ -1,26 +1,16 @@
 <?php
-
-include '../Config/.DB.inc';
-
-class database
+class BaseDeDatos
 {
-    var $conexion;
+    private $conexion;
 
-    function __construct()
+    public function __construct()
     {
-        $this->conexion = new mysqli(
-            apache_getenv("DBSERVER"),
-            apache_getenv("DBUSER"),
-            apache_getenv("DBPASSWORD"),
-            apache_getenv("DBDATABASE"),
-        );
+        $this->conexion = new mysqli("localhost", "root", "Qwe.proyectoSena", "Pokedex");
 
         if ($this->conexion->connect_error) {
             die("Connection failed: " . $this->conexion->connect_error);
         }
     }
-
-
 
     public function getConexion()
     {
